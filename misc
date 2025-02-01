@@ -5,3 +5,5 @@ cmd -> powershell ->
 Set-NetFirewallProfile -name public,private,domain -enabled false (disable firewall for testing)
 
 Get-NetFirewallProfile (check firewall status)
+
+Rename-computer rad (rename pc to "rad", require restart)
