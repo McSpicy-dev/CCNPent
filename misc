@@ -7,3 +7,9 @@ Set-NetFirewallProfile -name public,private,domain -enabled false (disable firew
 Get-NetFirewallProfile (check firewall status)
 
 Rename-computer rad (rename pc to "rad", require restart)
+
+Recover-Config (cisco wlc)
+
+give MS priv15 access to cisco
+
+shell:priv-lvl=15
