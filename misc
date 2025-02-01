@@ -10,6 +10,4 @@ Rename-computer rad (rename pc to "rad", require restart)
 
 Recover-Config (cisco wlc)
 
-give MS priv15 access to cisco
-
-shell:priv-lvl=15
+shell:priv-lvl=15 (give MS priv15 access to cisco)
