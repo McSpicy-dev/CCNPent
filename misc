@@ -1,0 +1,7 @@
+assorted commands go here
+
+cmd -> powershell ->
+
+Set-NetFirewallProfile -name public,private,domain -enabled false (disable firewall for testing)
+
+Get-NetFirewallProfile (check firewall status)
