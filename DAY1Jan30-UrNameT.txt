@@ -81,31 +81,31 @@ Interface Range Fa0/10-12
 !DHCP: DYNAMIC HOST CONFIGURATION PROTOCOL
 !@@@LEAF SWITCH
 config t
-ip dhcp Excluded-add 10._.1.1 10._.1.100
-ip dhcp Excluded-add 10._.10.1 10._.10.100
-ip dhcp Excluded-add 10._.50.1 10._.50.100
-ip dhcp Excluded-add 10._.100.1 10._.100.100
+ip dhcp Excluded-add 10.42.1.1 10.42.1.100
+ip dhcp Excluded-add 10.42.10.1 10.42.10.100
+ip dhcp Excluded-add 10.42.50.1 10.42.50.100
+ip dhcp Excluded-add 10.42.100.1 10.42.100.100
 ip dhcp pool MGMTDATA
-   network 10._.1.0 255.255.255.0
-   default-router 10._.1.4
+   network 10.42.1.0 255.255.255.0
+   default-router 10.42.1.4
    domain-name MGMTDATA.COM
-   dns-server 10._.1.10
+   dns-server 10.42.1.10
 ip dhcp pool WIFIDATA
-   network 10._.10.0 255.255.255.0
-   default-router 10._.10.4
+   network 10.42.10.0 255.255.255.0
+   default-router 10.42.10.4
    domain-name WIFIDATA.COM
-   dns-server 10._.1.10
+   dns-server 10.42.1.10
 ip dhcp pool IPCCTV
-   network 10._.50.0 255.255.255.0
-   default-router 10._.50.4
+   network 10.42.50.0 255.255.255.0
+   default-router 10.42.50.4
    domain-name IPCCTV.COM
-   dns-server 10._.1.10
+   dns-server 10.42.1.10
 ip dhcp pool VOICEVLAN
-   network 10._.100.0 255.255.255.0
-   default-router 10._.100.4
+   network 10.42.100.0 255.255.255.0
+   default-router 10.42.100.4
    domain-name VOICEVLAN.COM
-   dns-server 10._.1.10
-   option 150 ip 10._.100.8   
+   dns-server 10.42.1.10
+   option 150 ip 10.42.100.8   
    END
 
 VTP: VLAN TRUNKING PROTOCOL: NEEDs trunking, SYNC VLANS.
@@ -154,10 +154,10 @@ Int Fa 0/7
 IP CAMERA needs MAC dhcp Reservation:
 CoreBABA:
 ip dhcp pool CAM6
-host 10._.50.6 255.255.255.0
+host 10.42.50.6 255.255.255.0
 client-identifier 001a.0709.c258
 ip dhcp pool CAM8
-host 10._.50.8 255.255.255.0
+host 10.42.50.8 255.255.255.0
 client-identifier 001a.0704.7f5b
 end
 sh ip dhcp binding
