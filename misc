@@ -134,7 +134,7 @@ config t
 no ip sla 5
 ip sla 5 
   icmp-echo 8.8.8.8
-  freq 30
+  freq 10
   exit
 ip  sla  schedule 5 life forever start-time now
 track  5  ip sla 5
