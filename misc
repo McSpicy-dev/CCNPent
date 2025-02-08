@@ -39,7 +39,7 @@ transport udp 2055
 export-protocol netflow-v9
 end
 
-!allow http/https/telnet deny ssh
+!deny http/https/telnet allow ssh
 conf t
 ip access-list extended NOPROTO
 permit tcp any any eq 80
