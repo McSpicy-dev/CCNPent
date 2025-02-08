@@ -95,3 +95,11 @@ bandwidth percent 5
 control-plane
 service-policy input PMPROTOCOLS
 end
+
+!SPAN/RMON/monitorsessions
+
+conf t
+monitor session 11 source int fa0/5,fa0/7 both
+monitor session 11 destination int fa0/1
+end
+
