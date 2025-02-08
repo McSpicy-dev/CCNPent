@@ -39,3 +39,19 @@ transport udp 2055
 export-protocol netflow-v9
 end
 
+!allow http/https/telnet deny ssh
+conf t
+ip access-list extended NOPROTO
+permit tcp any any eq 80
+permit tcp any any eq 443
+permit tcp any any eq 23
+deny tcp any any eq 22
+class-map CMNOPROTO
+match access-group name NOPROTO
+policy-map PMNOPROTO
+class CMNOPROTO
+police 8000 conform-action drop exceed-action drop
+exit
+control-plane
+service-policy input PMNOPROTO
+end
