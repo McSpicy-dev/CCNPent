@@ -12,6 +12,8 @@ Recover-Config (cisco wlc)
 
 shell:priv-lvl=15 (give MS priv15 access to cisco)
 
+QOS shortcut : A-CM-PM-SP
+
 QOS (ping limiter, 8k pps)
 
 conf t
