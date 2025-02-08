@@ -27,3 +27,13 @@ control-plane
 service-policy input PMPINGSTOP !no service-policy input PMPINGSTOP (to disable)
 end
 show policy-map control-plane
+
+(netflow)
+
+conf t
+flow exporter MyFlowExporter
+destination 208.8.8.1
+transport udp 2055
+export-protocol netflow-v9
+end
+
