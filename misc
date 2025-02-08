@@ -103,3 +103,43 @@ monitor session 11 source int fa0/5,fa0/7 both
 monitor session 11 destination int fa0/1
 end
 
+!HSRP+IPSLA
+
+conf t
+
+ip route 0.0.0.0 0.0.0.0 208.8.8.2
+ip name-server 8.8.8.8
+end
+ping www.cisco.com
+
+config t
+Track 2 Int gi 1 line-protocol
+Int gi 2
+standby version 2
+standby 2 ip 192.168.102.23
+standby 2 preempt
+standby 2 Priority 150
+standby 2 track 2 decrement 60
+end
+
+config t
+Int gi 2
+standby version 2
+standby 2 ip 192.168.102.23
+standby 2 preempt
+standby 2 Priority 100
+END
+
+config t
+no ip sla 5
+ip sla 5 
+  icmp-echo 8.8.8.8
+  freq 30
+  exit
+ip  sla  schedule 5 life forever start-time now
+track  5  ip sla 5
+  delay down 10 up 5
+  exit
+Int gi 2
+NO standby 2 track 2 decrement 60
+standby 2 track 5 decrement 60
