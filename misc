@@ -55,3 +55,43 @@ exit
 control-plane
 service-policy input PMNOPROTO
 end
+
+!QOS policy
+!ssh top priority
+!telnet limited 10%
+!https 40%
+
+conf t
+
+ip access-list extended SSH
+permit tcp any any eq 22
+ip access-list extended TELNET
+permit tcp any any eq 23
+ip access-list extended HTTPS
+permit tcp any any eq 443
+permit tcp any any eq 80
+ip access-list extended DEFAULT
+permit ip any any
+
+class-map match-any CMSSH
+match access-group name SSH
+class-map match-any CMTELNET
+match access-group name TELNET
+class-map match-any CMHTTPS
+match access-group name HTTPS
+class-map match-any CMDEFAULT
+match access-group name DEFAULT
+
+policy-map PMPROTOCOLS
+class CMSSH
+bandwidth percent 50
+class CMTELNET
+bandwidth percent 5
+class CMHTTPS
+bandwidth percent 40
+class CMDEFAULT
+bandwidth percent 5
+
+control-plane
+service-policy input PMPROTOCOLS
+end
