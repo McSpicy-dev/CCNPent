@@ -23,7 +23,7 @@ class-map PINGSTOP
 match access-group 100
 policy-map PMPINGSTOP
 class PINGSTOP
-police 8000 conform-action transmit exceed-action drop
+police 8000 conform-action transmit exceed-action drop !important
 exit
 control-plane
 service-policy input PMPINGSTOP !no service-policy input PMPINGSTOP (to disable)
@@ -136,7 +136,7 @@ ip sla 5
   icmp-echo 8.8.8.8
   freq 10
   exit
-ip  sla  schedule 5 life forever start-time now
+ip  sla  schedule 5 life forever start-time now !important
 track  5  ip sla 5
   delay down 10 up 5
   exit
