@@ -24,6 +24,6 @@ class PINGSTOP
 police 8000 conform-action transmit exceed-action drop
 exit
 control-plane
-service-policy input PMPINGSTOP
+service-policy input PMPINGSTOP !no service-policy input PMPINGSTOP (to disable)
 end
 show policy-map control-plane
